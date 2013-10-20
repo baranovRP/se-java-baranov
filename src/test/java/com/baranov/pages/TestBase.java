@@ -96,6 +96,10 @@ public class TestBase {
 		}
 	}
 
+	protected boolean isElementsPresent(By locator) {
+		return driver.findElements(locator).size()>0;
+	}
+	
 	// @AfterMethod
 	// public void setScreenshot(ITestResult result) {
 	// if (!result.isSuccess()) {

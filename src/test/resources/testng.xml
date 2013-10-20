@@ -8,6 +8,7 @@
 			<class name="com.baranov.LoginTest" />
 			<class name="com.baranov.CreateFilmTest" />
 			<class name="com.baranov.RemoveFilmTest" />
+			<class name="com.baranov.SearchMovie" />
 		</classes>
 	</test>
 </suite>
