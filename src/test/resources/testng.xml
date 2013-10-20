@@ -6,6 +6,8 @@
 		<classes>
 			<!-- <class name="com.baranov.pages.HomePageTest"/> -->
 			<class name="com.baranov.LoginTest" />
+			<class name="com.baranov.CreateFilmTest" />
+			<class name="com.baranov.RemoveFilmTest" />
 		</classes>
 	</test>
 </suite>
