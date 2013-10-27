@@ -1,10 +1,5 @@
 package com.baranov.util;
 
-/*
- * Bean representing a browser. It contains name, version and platform fields.
- * 
- * @author Sebastiano Armeli-Battana
- */
 public class Browser {
 
 	private String name;

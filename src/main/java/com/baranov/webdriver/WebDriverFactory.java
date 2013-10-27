@@ -25,11 +25,6 @@ import com.baranov.webdriver.AuthenticatedHtmlUnitDriver;
 
 import com.baranov.util.Browser;
 
-/*
- * Factory to instantiate a WebDriver object. It returns an instance of the driver (local invocation) or an instance of RemoteWebDriver
- * 
- * @author Sebastiano Armeli-Battana
- */
 public class WebDriverFactory {
 
 	/* Browsers constants */

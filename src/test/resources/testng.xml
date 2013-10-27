@@ -5,10 +5,11 @@
 		<parameter name="path" value="/" />
 		<classes>
 			<!-- <class name="com.baranov.pages.HomePageTest"/> -->
-			<class name="com.baranov.LoginTest" />
+			<!-- <class name="com.baranov.LoginTest" /> -->
 			<class name="com.baranov.CreateFilmTest" />
-			<class name="com.baranov.RemoveFilmTest" />
-			<class name="com.baranov.SearchMovie" />
+			<!-- <class name="com.baranov.RemoveFilmTest" /> -->
+			<!-- <class name="com.baranov.SearchMovie" /> -->
+			<!-- <class name="com.baranov.AddNewUserTest" /> -->
 		</classes>
 	</test>
 </suite>
