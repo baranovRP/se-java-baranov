@@ -8,7 +8,8 @@ public interface FilmHelper {
 
 	void create(Film film);
 	void delete(Film film);
-	List<Film> search(String title);
+	List<String> search(String title);
 	boolean IsErrorsPresent();
+	public String searchFilmTitle (String title);
 
 }

@@ -2,9 +2,15 @@ package com.baranov.pages;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByClassName;
+import org.openqa.selenium.By.ByXPath;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class InternalPage extends AnyPage {
 
@@ -33,6 +39,19 @@ public class InternalPage extends AnyPage {
 	@FindBy(css = "nav a[href $= '?go=imdbupdate']")
 	private WebElement updateLink;
 
+	@FindBy(id = "q")
+	private WebElement searchField;
+
+	By filmTitle = ByClassName.className("title");
+
+	public List<WebElement> sendSearch(String title) {
+		searchField.clear();
+		searchField.sendKeys(title + Keys.RETURN);
+		List<WebElement> movieTitles = wait.until(ExpectedConditions
+                .presenceOfAllElementsLocatedBy(filmTitle));
+		return movieTitles;
+	}
+
 	public UserProfilePage clickUserProfilePage() {
 		userProfileLink.click();
 		return pages.userProfilePage;
@@ -53,4 +72,5 @@ public class InternalPage extends AnyPage {
 		addMovieLink.click();
 		return pages.filmAddPage;
 	}
+
 }

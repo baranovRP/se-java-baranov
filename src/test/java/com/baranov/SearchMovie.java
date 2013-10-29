@@ -15,28 +15,32 @@ public class SearchMovie extends TestBase {
 
 	@Test
 	public void searchFound() throws Exception {
-		WebElement searchField = wait.until(ExpectedConditions
-				.presenceOfElementLocated(By.id("q")));
-		searchField.clear();
-		searchField.sendKeys("kill" + Keys.RETURN);
-		List<WebElement> movieTitles = wait.until(ExpectedConditions
-				.presenceOfAllElementsLocatedBy(By.className("title")));
-		Assert.assertNotNull(movieTitles);
+		String title = "Kill Bill";
+		app.getUserHelper().loginAs(ADMIN);
+		Assert.assertTrue(app.getFilmHelper().searchFilmTitle(title)
+				.contains(title));
 	}
 
 	@Test
 	public void searchNotFound() throws Exception {
-		WebElement searchField = wait.until(ExpectedConditions
-				.presenceOfElementLocated(By.id("q")));
-		searchField.clear();
-		searchField.sendKeys("9999" + Keys.RETURN);
-		WebElement moviesNotFound = wait.until(ExpectedConditions
-				.presenceOfElementLocated(By.className("content")));
-		moviesNotFound.getText();
-		Assert.assertEquals(
-				true,
-				moviesNotFound.getText().equalsIgnoreCase(
-						"No movies where found."));
+		// WebElement searchField = wait.until(ExpectedConditions
+		// .presenceOfElementLocated(By.id("q")));
+		// searchField.clear();
+		// searchField.sendKeys("9999" + Keys.RETURN);
+		// WebElement moviesNotFound = wait.until(ExpectedConditions
+		// .presenceOfElementLocated(By.className("content")));
+		// moviesNotFound.getText();
+		// Assert.assertEquals(
+		// true,
+		// moviesNotFound.getText().equalsIgnoreCase(
+		// "No movies where found."));
+
+		String title = "999";
+		app.getUserHelper().loginAs(ADMIN);
+		Assert.assertFalse(app.getFilmHelper().searchFilmTitle(title)
+				.contains(title));
+//		Assert.assertEquals(true, app.getFilmHelper().searchFilmTitle(title)
+//				.equalsIgnoreCase("No movies where found."));
 	}
 
 }

@@ -1,8 +1,10 @@
 package com.baranov.applogic2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -22,22 +24,29 @@ public class FilmHelper2 extends DriverBasedHelper implements FilmHelper {
 		pages.filmAddPage.setTitleField(film.getTitle())
 				.setYearField(film.getYear())
 				.setNotesPersonalField(film.getNotes()).clickSubmitButton();
-		
+
 	}
 
 	@Override
 	public void delete(Film film) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public List<Film> search(String title) {
-		// TODO Auto-generated method stub
+	public List<String> search(String filmTitle) {
 		return null;
 	}
-	
-	public void nonCreate(Film film){
+
+	@Override
+	public String searchFilmTitle(String filmTitle) {
+		List<WebElement> filmTitles = pages.internalPage.sendSearch(filmTitle);
+		if (filmTitles.size() > 0) {
+			return filmTitles.get(0).getText();
+		}
+		return null;
+	}
+
+	public void nonCreate(Film film) {
 		WebElement addMovieIcon = wait.until(ExpectedConditions
 				.presenceOfElementLocated(By
 						.cssSelector("img[alt=\"Add movie\"]")));
