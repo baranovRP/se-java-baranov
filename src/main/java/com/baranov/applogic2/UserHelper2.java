@@ -49,9 +49,7 @@ public class UserHelper2 extends DriverBasedHelper implements UserHelper {
 	public void createUser(User user) {
 		pages.internalPage.clickUserManagementLink().ensurePageLoaded()
 				.setUsernameField(user.getLogin())
-				.setEmailField(user.getEmail())
-				.setPassword(user.getPassword())
-				.setPassword2(user.getPassword())
-				.clickSubmitButton();
+				.setEmailField(user.getEmail()).setPassword(user.getPassword())
+				.setPassword2(user.getPassword()).clickSubmitButton();
 	}
 }

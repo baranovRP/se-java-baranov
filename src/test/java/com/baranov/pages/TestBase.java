@@ -17,23 +17,23 @@ public class TestBase {
 
 	public String generateRandomYear() {
 		Random rnd = new Random();
-		if (rnd.nextInt(3) == 0){
+		if (rnd.nextInt(3) == 0) {
 			return "";
-		}	else {
+		} else {
 			int year = 1000 + rnd.nextInt(1014);
 			return "" + year;
 		}
 	}
-	
-	public String generateRandomString(){
+
+	public String generateRandomString() {
 		Random rnd = new Random();
-		if (rnd.nextInt(3) == 0){
+		if (rnd.nextInt(3) == 0) {
 			return "";
-		}	else {
+		} else {
 			return "test" + rnd.nextInt();
 		}
 	}
-	
+
 	@BeforeClass
 	public void init() {
 		app = new ApplicationManager2();

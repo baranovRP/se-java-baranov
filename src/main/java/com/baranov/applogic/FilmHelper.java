@@ -7,9 +7,15 @@ import com.baranov.model.Film;
 public interface FilmHelper {
 
 	void create(Film film);
-	void delete(Film film);
+
+	String delete(String film);
+
 	List<String> search(String title);
+
 	boolean IsErrorsPresent();
-	public String searchFilmTitle (String title);
+
+	public String searchFilmTitle(String title);
+
+	String filmNotFound(String title);
 
 }

@@ -12,62 +12,63 @@ import com.baranov.webdriver.WebDriverFactory;
 
 public class ApplicationManager2 implements ApplicationManager {
 
-  private UserHelper userHelper;
-  private FilmHelper filmHelper;
-  private NavigationHelper navHelper;
+	private UserHelper userHelper;
+	private FilmHelper filmHelper;
+	private NavigationHelper navHelper;
 
-  private WebDriver driver;
-  private String baseUrl;
-  
-  public ApplicationManager2() {
-    baseUrl = PropertyLoader.loadProperty("site.url");
-    String gridHubUrl = PropertyLoader.loadProperty("grid2.hub");
+	private WebDriver driver;
+	private String baseUrl;
 
-    Browser browser = new Browser();
-    browser.setName(PropertyLoader.loadProperty("browser.name"));
-    browser.setVersion(PropertyLoader.loadProperty("browser.version"));
-    browser.setPlatform(PropertyLoader.loadProperty("browser.platform"));
+	public ApplicationManager2() {
+		baseUrl = PropertyLoader.loadProperty("site.url");
+		String gridHubUrl = PropertyLoader.loadProperty("grid2.hub");
 
-    String username = PropertyLoader.loadProperty("user.username");
-    String password = PropertyLoader.loadProperty("user.password");
-    
-    driver = WebDriverFactory.getInstance(gridHubUrl, browser, username, password);
-    // driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Browser browser = new Browser();
+		browser.setName(PropertyLoader.loadProperty("browser.name"));
+		browser.setVersion(PropertyLoader.loadProperty("browser.version"));
+		browser.setPlatform(PropertyLoader.loadProperty("browser.platform"));
 
-    userHelper = new UserHelper2(this);
-    filmHelper = new FilmHelper2(this);
-    navHelper = new NavigationHelper2(this);
+		String username = PropertyLoader.loadProperty("user.username");
+		String password = PropertyLoader.loadProperty("user.password");
 
-    getNavigationHelper().openMainPage();
-  }
-  
-  @Override
-  public UserHelper getUserHelper() {
-    return userHelper;
-  }
+		driver = WebDriverFactory.getInstance(gridHubUrl, browser, username,
+				password);
+		// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-  @Override
-  public FilmHelper getFilmHelper() {
-    return filmHelper;
-  }
+		userHelper = new UserHelper2(this);
+		filmHelper = new FilmHelper2(this);
+		navHelper = new NavigationHelper2(this);
 
-  @Override
-  public NavigationHelper getNavigationHelper() {
-    return navHelper;
-  }
+		getNavigationHelper().openMainPage();
+	}
 
-  protected WebDriver getWebDriver() {
-    return driver;
-  }
+	@Override
+	public UserHelper getUserHelper() {
+		return userHelper;
+	}
 
-  protected String getBaseUrl() {
-    return baseUrl;
-  }
+	@Override
+	public FilmHelper getFilmHelper() {
+		return filmHelper;
+	}
 
-  @Override
-  public void stop() {
-    if (driver != null) {
-      driver.quit();
-    }
-  }
+	@Override
+	public NavigationHelper getNavigationHelper() {
+		return navHelper;
+	}
+
+	protected WebDriver getWebDriver() {
+		return driver;
+	}
+
+	protected String getBaseUrl() {
+		return baseUrl;
+	}
+
+	@Override
+	public void stop() {
+		if (driver != null) {
+			driver.quit();
+		}
+	}
 }

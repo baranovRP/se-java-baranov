@@ -2,16 +2,9 @@ package com.baranov.pages;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
-
-import com.baranov.model.Film;
 
 public class FilmAddPage extends InternalPage {
 

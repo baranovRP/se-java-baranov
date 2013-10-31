@@ -1,10 +1,8 @@
 package com.baranov.applogic2;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
@@ -28,8 +26,9 @@ public class FilmHelper2 extends DriverBasedHelper implements FilmHelper {
 	}
 
 	@Override
-	public void delete(Film film) {
-
+	public String delete(String filmTitle) {
+		pages.internalPage.findFilm(filmTitle);
+		return pages.filmViewPage.clickRemoveMovie();
 	}
 
 	@Override
@@ -44,6 +43,10 @@ public class FilmHelper2 extends DriverBasedHelper implements FilmHelper {
 			return filmTitles.get(0).getText();
 		}
 		return null;
+	}
+
+	public String filmNotFound(String filmTitle) {
+		return pages.internalPage.getError(filmTitle).getText();
 	}
 
 	public void nonCreate(Film film) {

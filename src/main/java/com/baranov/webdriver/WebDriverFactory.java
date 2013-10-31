@@ -12,18 +12,14 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.iphone.IPhoneDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
+import com.baranov.util.Browser;
 import com.opera.core.systems.OperaDriver;
-
-import com.baranov.util.Browser;
-import com.baranov.webdriver.AuthenticatedHtmlUnitDriver;
-
-import com.baranov.util.Browser;
 
 public class WebDriverFactory {
 
@@ -79,7 +75,7 @@ public class WebDriverFactory {
 			capability = DesiredCapabilities.chrome();
 		} else if (FIREFOX.equals(browserName)) {
 			capability = DesiredCapabilities.firefox();
-			
+
 			FirefoxProfile ffProfile = new FirefoxProfile();
 
 			// Authenication Hack for Firefox
@@ -88,15 +84,15 @@ public class WebDriverFactory {
 						255);
 				capability.setCapability(FirefoxDriver.PROFILE, ffProfile);
 			}
-			
+
 			capability.setCapability(CapabilityType.TAKES_SCREENSHOT, true);
 		} else if (INTERNET_EXPLORER.equals(browserName)) {
 
 			capability = DesiredCapabilities.internetExplorer();
 			capability
-			.setCapability(
-					InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
-					true);
+					.setCapability(
+							InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
+							true);
 		} else if (PHANTOMJS.equals(browserName)) {
 			capability = DesiredCapabilities.phantomjs();
 		} else if (OPERA.equals(browserName)) {
